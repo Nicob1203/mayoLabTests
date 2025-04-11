@@ -5,7 +5,7 @@ import Trial from './Trial';
 function handleResult(data) {
     console.log("Result received:", data);
 
-    fetch('http://10.0.2.2:5000/submit_result', {
+    fetch('http://10.0.2.2:5001/submit_result', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -17,5 +17,8 @@ function handleResult(data) {
     });
 }
 
+const width = window.innerWidth;
+const height = window.innerHeight;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Trial width={800} height={600} onFinalized={handleResult} />);
+root.render(<Trial width={width} height={height} onFinalized={handleResult} />);
